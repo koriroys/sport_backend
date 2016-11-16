@@ -38,5 +38,7 @@ defmodule SportBackend.Endpoint do
     key: "_sport_backend_key",
     signing_salt: "3QmB5Reo"
 
+  plug CORSPlug
+
   plug SportBackend.Router
 end

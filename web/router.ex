@@ -16,6 +16,7 @@ defmodule SportBackend.Router do
   scope "/", SportBackend do
     pipe_through :api
 
+    resources "session", SessionController, only: [:index]
     resources "/exercises", ExerciseController, except: [:new, :edit]
 
     ####################################################################
