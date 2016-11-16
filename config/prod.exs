@@ -14,9 +14,12 @@ use Mix.Config
 config :sport_backend, SportBackend.Endpoint,
   http: [port: {:system, "PORT"}],
   url: [host: "peaceful-ridge-40485.herokuapp.com/", port: 443],
+  force_ssl: [rewrite_on: [:x_forwarded_proto]],
   secret_key_base: System.get_env("SECRET_KEY_BASE"),
   cache_static_manifest: "priv/static/manifest.json"
 
+
+# configure your database
 config :sport_backend, SportBackend.Repo,
   adapter: Ecto.Adapters.Postgres,
   url: System.get_env("DATABASE_URL"),
@@ -64,4 +67,4 @@ config :logger, level: :info
 
 # Finally import the config/prod.secret.exs
 # which should be versioned separately.
-import_config "prod.secret.exs"
+

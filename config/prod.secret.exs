@@ -14,7 +14,6 @@ config :sport_backend, SportBackend.Endpoint,
 # Configure your database
 config :sport_backend, SportBackend.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: System.get_env("DATABASE_USERNAME"),
-  password: System.get_env("DATABASE_PASSWORD"),
-  database: "sport_backend_prod",
+  url: System.get_env("DATABASE_URL"),
+  ssl: true,
   pool_size: 20
