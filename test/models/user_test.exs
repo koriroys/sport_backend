@@ -15,4 +15,24 @@ defmodule SportBackend.UserTest do
     changeset = User.changeset(%User{}, @invalid_attrs)
     refute changeset.valid?
   end
+
+  test "password_confirmation must match" do
+    changeset = User.changeset(%User{}, %{email: "me@example.com",
+      password: "12341234",
+      password_confirmation: "abcdabcd"})
+    refute changeset.valid?
+  end
+
+  test "password_confirmation must be present" do
+    changeset = User.changeset(%User{}, %{email: "me@example.com",
+      password: "12341234"})
+    refute changeset.valid?
+  end
+
+  test "password must be certain length" do
+    changeset = User.changeset(%User{}, %{email: "me@example.com",
+      password: "abc",
+      password_confirmation: "abc"})
+    refute changeset.valid?
+  end
 end
