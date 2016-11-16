@@ -17,11 +17,17 @@ defmodule SportBackend.ExerciseControllerTest do
   test "shows chosen resource", %{conn: conn} do
     exercise = Repo.insert! %Exercise{}
     conn = get conn, exercise_path(conn, :show, exercise)
-    assert json_response(conn, 200)["data"] == %{"id" => exercise.id,
-      "title" => exercise.title,
-      "power_rating" => exercise.power_rating,
-      "progression_reps" => exercise.progression_reps,
-      "progression_sets" => exercise.progression_sets}
+    assert json_response(conn, 200)["data"] ==
+      %{
+        "id" => "#{exercise.id}",
+        "type" => "exercise",
+        "attributes" => %{
+          "title" => exercise.title,
+          "power-rating" => exercise.power_rating,
+          "progression-reps" => exercise.progression_reps,
+          "progression-sets" => exercise.progression_sets
+        }
+      }
   end
 
   test "renders page not found when id is nonexistent", %{conn: conn} do

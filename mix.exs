@@ -19,7 +19,7 @@ defmodule SportBackend.Mixfile do
   def application do
     [mod: {SportBackend, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex]]
+                    :phoenix_ecto, :postgrex, :comeonin]]
   end
 
   # Specifies which paths to compile per environment.
@@ -42,7 +42,8 @@ defmodule SportBackend.Mixfile do
      # app specific deps
      {:ja_serializer, "~> 0.9.0"},
      {:cors_plug, "~> 1.1"},
-     {:guardian, "~> 0.13.0"}
+     {:guardian, "~> 0.13.0"},
+     {:comeonin, "~> 2.6"}
    ]
   end
 

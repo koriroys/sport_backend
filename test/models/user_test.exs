@@ -3,7 +3,7 @@ defmodule SportBackend.UserTest do
 
   alias SportBackend.User
 
-  @valid_attrs %{email: "some content", password_hash: "some content"}
+  @valid_attrs %{email: "email@example.com", password: "password", password_confirmation: "password"}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do
