@@ -41,7 +41,8 @@ defmodule SportBackend.Mixfile do
 
      # app specific deps
      {:ja_serializer, "~> 0.9.0"},
-     {:cors_plug, "~> 1.1"}
+     {:cors_plug, "~> 1.1"},
+     {:guardian, "~> 0.13.0"}
    ]
   end
 

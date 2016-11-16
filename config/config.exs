@@ -29,6 +29,15 @@ config :phoenix, :format_encoders,
     "application/vnd.api+json" => ["json-api"]
   }
 
+config :guardian, Guardian,
+  allowed_algos: ["HS512"], # optional
+  verify_module: Guardian.JWT,  # optional
+  issuer: "Peepchat",
+  ttl: { 30, :days },
+  verify_issuer: true, # optional
+  secret_key: System.get_env("GUARDIAN_SECRET") || "/4KX9EzvlT0g5sgI2IBjTsmt2+2p+2IuyO2I/2ccxM8Y39/P2dJi0s71FWigI8Ge",
+  serializer: Peepchat.GuardianSerializer
+
 
 
 # Import environment specific config. This must remain at the bottom
